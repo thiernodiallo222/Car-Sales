@@ -5,6 +5,15 @@ import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { connect } from 'react-redux';
+
+import { reducer } from './reducers/reducer';
+
+
+const store = createStore(reducer);
+{/* <Provider> */}
 const App = () => {
   const state = {
     additionalPrice: 0,
@@ -44,8 +53,23 @@ const App = () => {
     </div>
   );
 };
+// </Provider>
+const mapStateToProps = state => {
+  return {
+    id: state.id,
+    name: state.name,
+    price: state.price
+  };
+};
 
-export default App;
+const addFeature = (stuff) => {
+  return {
+    type: 'ADD_FEATURE',
+    payload: stuff
+  }
+}
+
+export default connect(mapStateToProps, { addFeature: addFeature })(App);
 
 
 
