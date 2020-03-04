@@ -5,14 +5,13 @@ import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+
 import { connect } from 'react-redux';
 
-import { reducer } from './reducers/reducer';
 
 
-const store = createStore(reducer);
+
+// const store = createStore(reducer);
 {/* <Provider> */}
 const App = () => {
   const state = {
